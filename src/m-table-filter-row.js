@@ -34,7 +34,12 @@ class MTableFilterRow extends React.Component {
           this.props.onFilterChanged(columnDef.tableData.id, event.target.value);
         }}
         input={<Input id="select-multiple-checkbox" />}
-        renderValue={selecteds => selecteds.map(selected => columnDef.lookup[selected]).join(', ')}
+        renderValue={selecteds => {
+            const maxLength = 25;
+            const allVals = selecteds.map(selected => columnDef.lookup[selected]).join(', ');
+            return allVals.length > maxLength ? allVals.substr(0, maxLength-7) + '... (' + selecteds.length + ')': allVals;
+          }
+        }
         MenuProps={MenuProps}
       >
         {
@@ -51,7 +56,7 @@ class MTableFilterRow extends React.Component {
 
   renderBooleanFilter = (columnDef) => (
     <Checkbox
-      indeterminate={columnDef.tableData.filterValue === undefined}
+      indeterminate={columnDef.tableData.filterValue === 'unchecked'}
       checked={columnDef.tableData.filterValue === 'checked'}
       onChange={() => {
         let val;
