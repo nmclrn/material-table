@@ -1,5 +1,5 @@
 {
-  "name": "material-table",
+  "name": "material-table-nmclrn-fork",
   "version": "1.54.1",
   "description": "Datatable for React based on https://material-ui.com/api/table/ with additional features",
   "main": "dist/index.js",
@@ -35,7 +35,7 @@
     "datatable",
     "table"
   ],
-  "author": "Mehmet Baran",
+  "author": "Mehmet Baran, with tweaks in a fork by Neil McLaren",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mbrn/material-table/issues"
